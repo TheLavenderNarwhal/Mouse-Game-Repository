@@ -1,3 +1,50 @@
 [gd_scene format=3 uid="uid://bo7rvjqf768sj"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bjcjn"]
+material = SubResource("StandardMaterial3D_svtcy")
+size = Vector2(50, 50)
+
+[sub_resource type="Sky" id="Sky_svtcy"]
+
+[sub_resource type="Environment" id="Environment_bjcjn"]
+background_mode = 2
+background_color = Color(0.4561051, 0.6960161, 0.78469616, 1)
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_svtcy")
+sky_custom_fov = 51.3
+sky_rotation = Vector3(-1.7296213, 0, 0)
+ambient_light_source = 3
+ambient_light_color = Color(0.78039217, 0.9098039, 0.7882353, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 2
+glow_enabled = true
+glow_normalized = true
+glow_strength = 0.96
+fog_mode = 1
+fog_density = 0.445
+fog_depth_curve = 4.438277
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0087
+volumetric_fog_albedo = Color(0.9222056, 0.9307278, 0.86923105, 1)
+volumetric_fog_emission = Color(0.72451997, 0.5839626, 0.27866176, 1)
+volumetric_fog_emission_energy = 0.5
+
 [node name="Node3D" type="Node3D" unique_id=1895400802]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=585189955]
+mesh = SubResource("PlaneMesh_bjcjn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=293111350]
+environment = SubResource("Environment_bjcjn")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=712034488]
+transform = Transform3D(1, 0, 0, 0, 0.97654796, 0.21530004, 0, -0.21530004, 0.97654796, 0, 1.8280386, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
+transform = Transform3D(1, 0, 0, 0, 0.55676603, 0.83066934, 0, -0.83066934, 0.55676603, 0, 10.853449, 0.6155846)
+light_color = Color(0.7067903, 0.72702336, 0.764347, 1)
+light_energy = 0.81
+light_indirect_energy = 0.81
+light_volumetric_fog_energy = 2.206
