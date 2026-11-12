@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bo7rvjqf768sj"]
 
+[ext_resource type="PackedScene" uid="uid://d2jt8h0oor4yb" path="res://Giant Snake_TEXT.glb" id="1_s6mdv"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bjcjn"]
@@ -16,7 +18,7 @@ sky = SubResource("Sky_svtcy")
 sky_custom_fov = 51.3
 sky_rotation = Vector3(-1.7296213, 0, 0)
 ambient_light_source = 3
-ambient_light_color = Color(0.78039217, 0.9098039, 0.7882353, 1)
+ambient_light_color = Color(0.78039217, 0.36078432, 0.7882353, 1)
 ambient_light_energy = 16.0
 reflected_light_source = 2
 glow_enabled = true
@@ -40,11 +42,15 @@ mesh = SubResource("PlaneMesh_bjcjn")
 environment = SubResource("Environment_bjcjn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=712034488]
-transform = Transform3D(1, 0, 0, 0, 0.97654796, 0.21530004, 0, -0.21530004, 0.97654796, 0, 1.8280386, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9956356, 0.09332624, 0, -0.09332624, 0.9956356, 0, 1.9474348, 1.6422215)
+fov = 59.379005
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
 transform = Transform3D(1, 0, 0, 0, 0.55676603, 0.83066934, 0, -0.83066934, 0.55676603, 0, 10.853449, 0.6155846)
 light_color = Color(0.7067903, 0.72702336, 0.764347, 1)
-light_energy = 0.81
+light_energy = 2.27
 light_indirect_energy = 0.81
 light_volumetric_fog_energy = 2.206
+
+[node name="Giant Snake_TEXT" parent="." unique_id=1478634906 instance=ExtResource("1_s6mdv")]
+transform = Transform3D(-0.99813855, 0, 0.060987663, 0, 1, 0, -0.060987663, 0, -0.99813855, 0, 0, -5.7309165)
