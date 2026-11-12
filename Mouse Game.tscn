@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bo7rvjqf768sj"]
 
 [ext_resource type="PackedScene" uid="uid://d2jt8h0oor4yb" path="res://Giant Snake_TEXT.glb" id="1_s6mdv"]
+[ext_resource type="PackedScene" uid="uid://dqlv5yxtle38e" path="res://Canyon TEXT.glb" id="1_x2hxm"]
+[ext_resource type="PackedScene" uid="uid://bnn2fo6p4n45p" path="res://rat_boss_reto_w_texture.glb" id="3_48252"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 
@@ -36,13 +38,14 @@ volumetric_fog_emission_energy = 0.5
 [node name="Node3D" type="Node3D" unique_id=1895400802]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=585189955]
+transform = Transform3D(1.3538793, 0, 0, 0, 1, 0, 0, 0, 4.1351104, 0, 0, 0)
 mesh = SubResource("PlaneMesh_bjcjn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=293111350]
 environment = SubResource("Environment_bjcjn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=712034488]
-transform = Transform3D(1, 0, 0, 0, 0.9956356, 0.09332624, 0, -0.09332624, 0.9956356, 0, 1.9474348, 1.6422215)
+transform = Transform3D(-0.9849465, 0.10861355, 0.13447519, 0.043126147, 0.90774506, -0.41729975, -0.16739361, -0.4052185, -0.8987645, 9.963398, 3.3526917, -68.08464)
 fov = 59.379005
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
@@ -52,5 +55,19 @@ light_energy = 2.27
 light_indirect_energy = 0.81
 light_volumetric_fog_energy = 2.206
 
+[node name="Canyon TEXT" parent="." unique_id=1459433752 instance=ExtResource("1_x2hxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.64185333, 0)
+
 [node name="Giant Snake_TEXT" parent="." unique_id=1478634906 instance=ExtResource("1_s6mdv")]
-transform = Transform3D(-0.99813855, 0, 0.060987663, 0, 1, 0, -0.060987663, 0, -0.99813855, 0, 0, -5.7309165)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.7882261, 0, 63.004513)
+
+[node name="rat_boss_reto_w_texture" parent="Giant Snake_TEXT" unique_id=676193062 instance=ExtResource("3_48252")]
+transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 0.24393693, 2.3564606, -23.112045)
+
+[node name="Retopo_Rat_HP" parent="Giant Snake_TEXT/rat_boss_reto_w_texture" index="0" unique_id=2074272789]
+transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.7640175, 2.8202384e-08, -1.0315187e-08, -2.8202397e-08, 1, -4.470642, 0.8019142, 25.382225)
+
+[node name="Retopo_Rat_HP_001" parent="Giant Snake_TEXT/rat_boss_reto_w_texture" index="1" unique_id=1360454833]
+transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
+
+[editable path="Giant Snake_TEXT/rat_boss_reto_w_texture"]
