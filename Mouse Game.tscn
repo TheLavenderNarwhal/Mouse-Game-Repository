@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d2jt8h0oor4yb" path="res://Giant Snake_TEXT.glb" id="1_s6mdv"]
 [ext_resource type="PackedScene" uid="uid://dqlv5yxtle38e" path="res://Canyon TEXT.glb" id="1_x2hxm"]
 [ext_resource type="PackedScene" uid="uid://bnn2fo6p4n45p" path="res://rat_boss_reto_w_texture.glb" id="3_48252"]
+[ext_resource type="PackedScene" uid="uid://deyjlikx7a78u" path="res://floor text.glb" id="4_48252"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 
@@ -45,8 +46,8 @@ mesh = SubResource("PlaneMesh_bjcjn")
 environment = SubResource("Environment_bjcjn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=712034488]
-transform = Transform3D(-0.9849465, 0.10861355, 0.13447519, 0.043126147, 0.90774506, -0.41729975, -0.16739361, -0.4052185, -0.8987645, 9.963398, 3.3526917, -68.08464)
-fov = 59.379005
+transform = Transform3D(-0.99827635, 0.021625755, -0.054558787, 0.045100622, 0.87753665, -0.47738388, 0.037553556, -0.4790216, -0.87699944, -0.05348587, 2.6696777, 36.346394)
+fov = 83.15007
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
 transform = Transform3D(1, 0, 0, 0, 0.55676603, 0.83066934, 0, -0.83066934, 0.55676603, 0, 10.853449, 0.6155846)
@@ -61,13 +62,158 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.64185333, 0)
 [node name="Giant Snake_TEXT" parent="." unique_id=1478634906 instance=ExtResource("1_s6mdv")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.7882261, 0, 63.004513)
 
-[node name="rat_boss_reto_w_texture" parent="Giant Snake_TEXT" unique_id=676193062 instance=ExtResource("3_48252")]
-transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 0.24393693, 2.3564606, -23.112045)
+[node name="rat_boss_reto_w_texture" parent="." unique_id=676193062 instance=ExtResource("3_48252")]
+transform = Transform3D(-6.5567086e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.5567086e-08, 2.0079107, 11.782303, -52.555714)
 
-[node name="Retopo_Rat_HP" parent="Giant Snake_TEXT/rat_boss_reto_w_texture" index="0" unique_id=2074272789]
+[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=2074272789]
 transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.7640175, 2.8202384e-08, -1.0315187e-08, -2.8202397e-08, 1, -4.470642, 0.8019142, 25.382225)
 
-[node name="Retopo_Rat_HP_001" parent="Giant Snake_TEXT/rat_boss_reto_w_texture" index="1" unique_id=1360454833]
+[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1360454833]
 transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
 
-[editable path="Giant Snake_TEXT/rat_boss_reto_w_texture"]
+[node name="floor text" parent="rat_boss_reto_w_texture" unique_id=366053607 instance=ExtResource("4_48252")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36.05841, -7.721078, -1.5497208e-06)
+
+[node name="Snake lights" type="Node3D" parent="." unique_id=61501992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6893206, 11.499433, 57.189766)
+
+[node name="Snake Eye 1" type="AreaLight3D" parent="Snake lights" unique_id=308734168]
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Snake Eye 2" type="AreaLight3D" parent="Snake lights" unique_id=573529761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82067, -7.3647842, 1.7792549)
+visible = false
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Snake Eye 3" type="AreaLight3D" parent="Snake lights" unique_id=1372900221]
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Snake Eye 7" type="AreaLight3D" parent="Snake lights" unique_id=374193267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.068985, -8.049736, 0)
+visible = false
+light_color = Color(0, 1, 1, 1)
+light_energy = 7.351
+light_indirect_energy = 4.238
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 511.37
+
+[node name="Snake Eye 8" type="AreaLight3D" parent="Snake lights" unique_id=701930263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.068985, -8.049736, -5.403282)
+visible = false
+light_color = Color(0, 1, 1, 1)
+light_energy = 7.351
+light_indirect_energy = 4.238
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 511.37
+
+[node name="Snake Eye 9" type="AreaLight3D" parent="Snake lights" unique_id=354306566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.068985, -8.049736, -10.950794)
+visible = false
+light_color = Color(0, 1, 1, 1)
+light_energy = 7.351
+light_indirect_energy = 4.238
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 511.37
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Snake lights" unique_id=197335079]
+transform = Transform3D(1, 0, 0, 0, 0.996065, -0.08862582, 0, 0.08862582, 0.996065, 5.068985, -8.049736, 17.063011)
+visible = false
+light_color = Color(0, 1, 1, 1)
+light_volumetric_fog_energy = 7.286
+light_specular = 0.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Snake lights" unique_id=1973453518]
+transform = Transform3D(1, 0, 0, 0, 0.99872476, 0.050486155, 0, -0.050486155, 0.99872476, 5.068985, -8.13837, 34.78344)
+light_color = Color(0, 1, 1, 1)
+light_energy = 16.0
+light_indirect_energy = 6.27
+light_volumetric_fog_energy = 16.0
+light_specular = 16.0
+spot_range = 60.04881
+spot_angle = 14.0059
+
+[node name="Snake Eye 4" type="AreaLight3D" parent="Snake lights" unique_id=1752549714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.820132, 0.25071526, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Snake Eye 5" type="AreaLight3D" parent="Snake lights" unique_id=1773016945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.820132, 0.25071526, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Snake Eye 6" type="AreaLight3D" parent="Snake lights" unique_id=123633973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.820132, 0.25071526, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 1" type="AreaLight3D" parent="." unique_id=1378913377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2403712, 7.994632, -56.290844)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 2" type="AreaLight3D" parent="." unique_id=6804483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2403712, 7.994632, -56.290844)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 3" type="AreaLight3D" parent="." unique_id=1595642417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2403712, 7.994632, -56.290844)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 4" type="AreaLight3D" parent="." unique_id=1271178747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0950122, 7.994632, -56.290844)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 5" type="AreaLight3D" parent="." unique_id=653988457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0950122, 7.994632, -56.290844)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 6" type="AreaLight3D" parent="." unique_id=1177099610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0950122, 7.994632, -56.290844)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 7" type="AreaLight3D" parent="." unique_id=1826576995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8475113, 7.424589, -54.324265)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 8" type="AreaLight3D" parent="." unique_id=2097349872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8475113, 7.424589, -54.324265)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[node name="Rat eye 9" type="AreaLight3D" parent="." unique_id=821637548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8475113, 7.424589, -54.324265)
+light_color = Color(0, 1, 1, 1)
+light_energy = 5.573
+light_volumetric_fog_energy = 16.0
+
+[editable path="rat_boss_reto_w_texture"]
