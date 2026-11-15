@@ -2,9 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://br2j0vl8r70mw" path="res://AllSkyFree_Godot-10e858fef0a9c5fa071de8bc191c3b4bef00edda/Screenshots/_0003_AllSkyFree_Screen_06.jpg" id="1_b0lby"]
 [ext_resource type="PackedScene" uid="uid://d2jt8h0oor4yb" path="res://Giant Snake_TEXT.glb" id="1_s6mdv"]
+[ext_resource type="Script" uid="uid://bysstj5jtvucp" path="res://camera_3d.gd" id="1_vtx4m"]
 [ext_resource type="PackedScene" uid="uid://dqlv5yxtle38e" path="res://Canyon TEXT.glb" id="1_x2hxm"]
 [ext_resource type="PackedScene" uid="uid://bnn2fo6p4n45p" path="res://rat_boss_reto_w_texture.glb" id="3_48252"]
+[ext_resource type="Script" uid="uid://dvtf0mlkyydd0" path="res://snake_mono_trigger.gd" id="3_y5rtj"]
 [ext_resource type="PackedScene" uid="uid://deyjlikx7a78u" path="res://floor text.glb" id="4_48252"]
+[ext_resource type="AudioStream" uid="uid://drjmmyjb4t8a8" path="res://Snake_lines_fin.mp3" id="4_vtx4m"]
+[ext_resource type="AudioStream" uid="uid://bxvgf5ttquqn6" path="res://canyon wind.mp3" id="7_ybiyl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 
@@ -15,6 +19,9 @@ size = Vector2(50, 50)
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_y5rtj"]
 panorama = ExtResource("1_b0lby")
 energy_multiplier = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_baofl"]
+size = Vector3(82.72125, 3.6854248, 58.048096)
 
 [sub_resource type="Sky" id="Sky_svtcy"]
 sky_material = SubResource("PanoramaSkyMaterial_y5rtj")
@@ -58,18 +65,37 @@ volumetric_fog_length = 17.45
 volumetric_fog_detail_spread = 0.5
 volumetric_fog_sky_affect = 0.256
 
-[node name="Node3D" type="Node3D" unique_id=1895400802]
+[sub_resource type="BoxShape3D" id="BoxShape3D_53ymn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17a3h"]
+size = Vector3(5.2673035, 4.451294, 9.688843)
+
+[node name="CanyonMap" type="Node3D" unique_id=1895400802]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=585189955]
 transform = Transform3D(1.3538793, 0, 0, 0, 1, 0, 0, 0, 4.1351104, 0, 0, 0)
 mesh = SubResource("PlaneMesh_bjcjn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=290986159]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2114692052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.718476, -1.1513596, 0.60559076)
+shape = SubResource("BoxShape3D_baofl")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=293111350]
 environment = SubResource("Environment_bjcjn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=712034488]
 transform = Transform3D(-0.99827635, 0.021625755, -0.054558787, 0.045100622, 0.87753665, -0.47738388, 0.037553556, -0.4790216, -0.87699944, -0.05348587, 2.6696777, 36.346394)
+cull_mask = 1047553
 fov = 83.15007
+script = ExtResource("1_vtx4m")
+
+[node name="Area3D" type="Area3D" parent="Camera3D" unique_id=1746800573]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D" unique_id=383845219]
+transform = Transform3D(1, 1.8626451e-09, -3.7252903e-09, 0, 1, 0, 3.7252903e-09, -2.9802322e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_53ymn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
 transform = Transform3D(0.22955865, -0.50861466, 0.8298278, -0.9732947, -0.11996043, 0.19572087, 0, -0.85259634, -0.52256984, 0, 10.853449, 0.6155846)
@@ -81,8 +107,22 @@ light_volumetric_fog_energy = 2.206
 [node name="Canyon TEXT" parent="." unique_id=1459433752 instance=ExtResource("1_x2hxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.64185333, 0)
 
-[node name="Giant Snake_TEXT" parent="." unique_id=1478634906 instance=ExtResource("1_s6mdv")]
+[node name="Giant Snake_TEXT" parent="." unique_id=1478634906 node_paths=PackedStringArray("monologue", "snake_trigger") instance=ExtResource("1_s6mdv")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.7882261, 0, 63.004513)
+script = ExtResource("3_y5rtj")
+monologue = NodePath("Snake_Monologue")
+snake_trigger = NodePath("Snake_Mono_Trigger")
+
+[node name="Snake_Mono_Trigger" type="Area3D" parent="Giant Snake_TEXT" unique_id=1190701853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5227124, 0)
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Giant Snake_TEXT/Snake_Mono_Trigger" unique_id=619277592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22758484, 1.725647, -1.395935)
+shape = SubResource("BoxShape3D_17a3h")
+
+[node name="Snake_Monologue" type="AudioStreamPlayer" parent="Giant Snake_TEXT" unique_id=2103870559]
+stream = ExtResource("4_vtx4m")
 
 [node name="rat_boss_reto_w_texture" parent="." unique_id=676193062 instance=ExtResource("3_48252")]
 transform = Transform3D(-6.5567086e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.5567086e-08, 2.0079107, 11.782303, -52.555714)
@@ -237,5 +277,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8475113, 7.424589, -54.324
 light_color = Color(0, 1, 1, 1)
 light_energy = 5.573
 light_volumetric_fog_energy = 16.0
+
+[node name="Canyon_Ambiance" type="AudioStreamPlayer" parent="." unique_id=1578871001]
+stream = ExtResource("7_ybiyl")
+autoplay = true
+bus = &"Ambiance "
 
 [editable path="rat_boss_reto_w_texture"]
