@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxvgf5ttquqn6"
+path="res://.godot/imported/canyon wind.mp3-d19ced36093ef72e160a3843f3bdda55.mp3str"
+
+[deps]
+
+source_file="res://canyon wind.mp3"
+dest_files=["res://.godot/imported/canyon wind.mp3-d19ced36093ef72e160a3843f3bdda55.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
