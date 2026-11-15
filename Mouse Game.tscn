@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bo7rvjqf768sj"]
 
+[ext_resource type="Texture2D" uid="uid://br2j0vl8r70mw" path="res://AllSkyFree_Godot-10e858fef0a9c5fa071de8bc191c3b4bef00edda/Screenshots/_0003_AllSkyFree_Screen_06.jpg" id="1_b0lby"]
 [ext_resource type="PackedScene" uid="uid://d2jt8h0oor4yb" path="res://Giant Snake_TEXT.glb" id="1_s6mdv"]
 [ext_resource type="PackedScene" uid="uid://dqlv5yxtle38e" path="res://Canyon TEXT.glb" id="1_x2hxm"]
 [ext_resource type="PackedScene" uid="uid://bnn2fo6p4n45p" path="res://rat_boss_reto_w_texture.glb" id="3_48252"]
@@ -11,30 +12,51 @@
 material = SubResource("StandardMaterial3D_svtcy")
 size = Vector2(50, 50)
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_y5rtj"]
+panorama = ExtResource("1_b0lby")
+energy_multiplier = 0.8
+
 [sub_resource type="Sky" id="Sky_svtcy"]
+sky_material = SubResource("PanoramaSkyMaterial_y5rtj")
 
 [sub_resource type="Environment" id="Environment_bjcjn"]
 background_mode = 2
 background_color = Color(0.4561051, 0.6960161, 0.78469616, 1)
 background_energy_multiplier = 1.2
 sky = SubResource("Sky_svtcy")
-sky_custom_fov = 51.3
-sky_rotation = Vector3(-1.7296213, 0, 0)
+sky_custom_fov = 113.0
+sky_rotation = Vector3(-2.3684118, 2.0018926, 4.488987)
 ambient_light_source = 3
-ambient_light_color = Color(0.78039217, 0.36078432, 0.7882353, 1)
-ambient_light_energy = 16.0
+ambient_light_color = Color(0.9158086, 0.31475845, 0.402036, 1)
+ambient_light_sky_contribution = 0.96
+ambient_light_energy = 9.35
 reflected_light_source = 2
-glow_enabled = true
+ssr_enabled = true
+ssr_fade_in = 0.26116502
 glow_normalized = true
 glow_strength = 0.96
+fog_enabled = true
 fog_mode = 1
-fog_density = 0.445
-fog_depth_curve = 4.438277
+fog_light_color = Color(0.76270443, 0.5399158, 0.09794565, 1)
+fog_light_energy = 3.31
+fog_sun_scatter = 0.45
+fog_density = 0.706
+fog_aerial_perspective = 0.541
+fog_sky_affect = 0.215
+fog_height = 431.6
+fog_height_density = -3.967
+fog_depth_curve = 2.0705304
+fog_depth_begin = 0.0
+fog_depth_end = 0.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0087
-volumetric_fog_albedo = Color(0.9222056, 0.9307278, 0.86923105, 1)
-volumetric_fog_emission = Color(0.72451997, 0.5839626, 0.27866176, 1)
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.8834514, 0.9397766, 0.7425653, 1)
+volumetric_fog_emission = Color(0.95966715, 0.45460194, 0.4337751, 1)
 volumetric_fog_emission_energy = 0.5
+volumetric_fog_anisotropy = 0.06
+volumetric_fog_length = 17.45
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_sky_affect = 0.256
 
 [node name="Node3D" type="Node3D" unique_id=1895400802]
 
@@ -50,7 +72,7 @@ transform = Transform3D(-0.99827635, 0.021625755, -0.054558787, 0.045100622, 0.8
 fov = 83.15007
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
-transform = Transform3D(1, 0, 0, 0, 0.55676603, 0.83066934, 0, -0.83066934, 0.55676603, 0, 10.853449, 0.6155846)
+transform = Transform3D(0.22955865, -0.50861466, 0.8298278, -0.9732947, -0.11996043, 0.19572087, 0, -0.85259634, -0.52256984, 0, 10.853449, 0.6155846)
 light_color = Color(0.7067903, 0.72702336, 0.764347, 1)
 light_energy = 2.27
 light_indirect_energy = 0.81
@@ -65,10 +87,10 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.7882261, 0, 63.004513)
 [node name="rat_boss_reto_w_texture" parent="." unique_id=676193062 instance=ExtResource("3_48252")]
 transform = Transform3D(-6.5567086e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.5567086e-08, 2.0079107, 11.782303, -52.555714)
 
-[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=2074272789]
+[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=362980406]
 transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.7640175, 2.8202384e-08, -1.0315187e-08, -2.8202397e-08, 1, -4.470642, 0.8019142, 25.382225)
 
-[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1360454833]
+[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1835125170]
 transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
 
 [node name="floor text" parent="rat_boss_reto_w_texture" unique_id=366053607 instance=ExtResource("4_48252")]
