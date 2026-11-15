@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://deyjlikx7a78u" path="res://floor text.glb" id="4_48252"]
 [ext_resource type="AudioStream" uid="uid://drjmmyjb4t8a8" path="res://Snake_lines_fin.mp3" id="4_vtx4m"]
 [ext_resource type="AudioStream" uid="uid://bxvgf5ttquqn6" path="res://canyon wind.mp3" id="7_ybiyl"]
+[ext_resource type="AudioStream" uid="uid://btqtr3kcsr73o" path="res://Rat_Line_1fin.mp3" id="9_2v66h"]
+[ext_resource type="Script" uid="uid://de0bmccydahsq" path="res://rat_mono_trigger.gd" id="10_sufdj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 albedo_texture = ExtResource("1_ybiyl")
@@ -142,10 +144,17 @@ transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.76
 transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
 
 [node name="Rat_Monologue_one" type="AudioStreamPlayer" parent="rat_boss_reto_w_texture" unique_id=1357601980]
+stream = ExtResource("9_2v66h")
 
-[node name="Rat_mono_trigger_one" type="Area3D" parent="rat_boss_reto_w_texture" unique_id=1442523804]
+[node name="Rat_monologue_two" type="AudioStreamPlayer" parent="rat_boss_reto_w_texture" unique_id=2064086386]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="rat_boss_reto_w_texture/Rat_mono_trigger_one" unique_id=364229849]
+[node name="Rat_mono_trigger" type="Area3D" parent="rat_boss_reto_w_texture" unique_id=1442523804 node_paths=PackedStringArray("monologue1", "monologue2", "rat_trigger")]
+script = ExtResource("10_sufdj")
+monologue1 = NodePath("../Rat_Monologue_one")
+monologue2 = NodePath("../Rat_monologue_two")
+rat_trigger = NodePath(".")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rat_boss_reto_w_texture/Rat_mono_trigger" unique_id=364229849]
 transform = Transform3D(1, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, 2.153473, -2.5714655, 3.5375047)
 shape = SubResource("BoxShape3D_nu3l4")
 
