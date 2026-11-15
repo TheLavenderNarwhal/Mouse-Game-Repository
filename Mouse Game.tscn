@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bo7rvjqf768sj"]
 
 [ext_resource type="PackedScene" uid="uid://d2jt8h0oor4yb" path="res://Giant Snake_TEXT.glb" id="1_s6mdv"]
+[ext_resource type="Script" uid="uid://bysstj5jtvucp" path="res://camera_3d.gd" id="1_vtx4m"]
 [ext_resource type="PackedScene" uid="uid://dqlv5yxtle38e" path="res://Canyon TEXT.glb" id="1_x2hxm"]
 [ext_resource type="PackedScene" uid="uid://bnn2fo6p4n45p" path="res://rat_boss_reto_w_texture.glb" id="3_48252"]
 [ext_resource type="Script" uid="uid://dvtf0mlkyydd0" path="res://snake_mono_trigger.gd" id="3_y5rtj"]
@@ -42,6 +43,8 @@ volumetric_fog_albedo = Color(0.9222056, 0.9307278, 0.86923105, 1)
 volumetric_fog_emission = Color(0.72451997, 0.5839626, 0.27866176, 1)
 volumetric_fog_emission_energy = 0.5
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_53ymn"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_17a3h"]
 size = Vector3(5.2673035, 4.451294, 9.688843)
 
@@ -62,7 +65,15 @@ environment = SubResource("Environment_bjcjn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=712034488]
 transform = Transform3D(-0.99827635, 0.021625755, -0.054558787, 0.045100622, 0.87753665, -0.47738388, 0.037553556, -0.4790216, -0.87699944, -0.05348587, 2.6696777, 36.346394)
+cull_mask = 1047553
 fov = 83.15007
+script = ExtResource("1_vtx4m")
+
+[node name="Area3D" type="Area3D" parent="Camera3D" unique_id=1746800573]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D" unique_id=383845219]
+transform = Transform3D(1, 1.8626451e-09, -3.7252903e-09, 0, 1, 0, 3.7252903e-09, -2.9802322e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_53ymn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
 transform = Transform3D(1, 0, 0, 0, 0.55676603, 0.83066934, 0, -0.83066934, 0.55676603, 0, 10.853449, 0.6155846)
@@ -94,10 +105,10 @@ stream = ExtResource("4_vtx4m")
 [node name="rat_boss_reto_w_texture" parent="." unique_id=676193062 instance=ExtResource("3_48252")]
 transform = Transform3D(-6.5567086e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.5567086e-08, 2.0079107, 11.782303, -52.555714)
 
-[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=1387870882]
+[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=1693497794]
 transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.7640175, 2.8202384e-08, -1.0315187e-08, -2.8202397e-08, 1, -4.470642, 0.8019142, 25.382225)
 
-[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=69318675]
+[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1998673570]
 transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
 
 [node name="floor text" parent="rat_boss_reto_w_texture" unique_id=366053607 instance=ExtResource("4_48252")]
