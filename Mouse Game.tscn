@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dvtf0mlkyydd0" path="res://snake_mono_trigger.gd" id="3_y5rtj"]
 [ext_resource type="PackedScene" uid="uid://deyjlikx7a78u" path="res://floor text.glb" id="4_48252"]
 [ext_resource type="AudioStream" uid="uid://drjmmyjb4t8a8" path="res://Snake_lines_fin.mp3" id="4_vtx4m"]
+[ext_resource type="PackedScene" uid="uid://bli5vxrjb7cf1" path="res://character.tscn" id="5_3i46s"]
 [ext_resource type="AudioStream" uid="uid://bxvgf5ttquqn6" path="res://canyon wind.mp3" id="7_ybiyl"]
 [ext_resource type="AudioStream" uid="uid://btqtr3kcsr73o" path="res://Rat_Line_1fin.mp3" id="9_2v66h"]
 [ext_resource type="Script" uid="uid://de0bmccydahsq" path="res://rat_mono_trigger.gd" id="10_sufdj"]
@@ -27,6 +28,10 @@ size = Vector2(50, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_baofl"]
 size = Vector3(82.72125, 3.6854248, 58.048096)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bjcjn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjcjn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_y5rtj"]
 panorama = ExtResource("1_b0lby")
@@ -104,6 +109,16 @@ transform = Transform3D(-1.1079273, 0, -9.685808e-08, 0, 1.5, 0, 3.171237e-08, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2114692052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.718476, -1.1513596, 0.60559076)
 shape = SubResource("BoxShape3D_baofl")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1422818334]
+transform = Transform3D(-1.4999999, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.4999999, 2.0079107, 1.6775622, 1.5319022)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=906436366]
+visible = false
+mesh = SubResource("CapsuleMesh_bjcjn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1842828057]
+shape = SubResource("CapsuleShape3D_bjcjn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=293111350]
 environment = SubResource("Environment_bjcjn")
@@ -432,6 +447,9 @@ transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/cat_mono_trigger" unique_id=582034204]
 transform = Transform3D(4.35, 0, -2.9802322e-07, 0, 4.35, 0, 2.9802322e-07, 0, 4.35, 2.0153277, 1.5552847, -0.13084126)
 shape = SubResource("BoxShape3D_ucpcr")
+
+[node name="Node3D" parent="." unique_id=1082028887 instance=ExtResource("5_3i46s")]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 2.3435955, 0.7467921, 36.087578)
 
 [node name="Bird_Boss_TEXT" parent="." unique_id=1546241203 node_paths=PackedStringArray("monologue", "bird_trigger") instance=ExtResource("14_7tbbv")]
 transform = Transform3D(-0.21588406, 0, -0.5598161, 0, 0.6, 0, 0.5598161, 0, -0.21588406, 10.95466, 20.00622, -20.873295)
