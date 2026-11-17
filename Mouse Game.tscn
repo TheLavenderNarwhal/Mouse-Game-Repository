@@ -14,6 +14,9 @@
 [ext_resource type="Script" uid="uid://de0bmccydahsq" path="res://rat_mono_trigger.gd" id="10_sufdj"]
 [ext_resource type="PackedScene" uid="uid://ngwjrr0u64is" path="res://Cat Unwrap TEXT.glb" id="13_p2m5s"]
 [ext_resource type="PackedScene" uid="uid://dlqne0fx131jl" path="res://Bird_Boss_TEXT.glb" id="14_7tbbv"]
+[ext_resource type="Script" uid="uid://dyoii2l1p7y5g" path="res://cat_mono_trigger.gd" id="14_k348x"]
+[ext_resource type="Script" uid="uid://bjd0u1uh0p7cj" path="res://bird_mono_trigger.gd" id="15_1ngbj"]
+[ext_resource type="AudioStream" uid="uid://crt2thegn7b80" path="res://Bird_lines_fin.mp3" id="16_k348x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 albedo_texture = ExtResource("1_ybiyl")
@@ -81,6 +84,10 @@ size = Vector3(5.2673035, 4.451294, 9.688843)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nu3l4"]
 size = Vector3(16.159607, 10.095154, 22.447083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ucpcr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8v7rc"]
 
 [node name="CanyonMap" type="Node3D" unique_id=1895400802]
 
@@ -256,13 +263,17 @@ light_color = Color(0, 1, 1, 1)
 light_energy = 5.573
 light_volumetric_fog_energy = 16.0
 
-[node name="rat_boss_reto_w_texture" parent="." unique_id=676193062 instance=ExtResource("3_48252")]
+[node name="rat_boss_reto_w_texture" parent="." unique_id=676193062 node_paths=PackedStringArray("monologue1", "monologue2", "rat_trigger") instance=ExtResource("3_48252")]
 transform = Transform3D(-6.5567086e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.5567086e-08, 2.0079107, 11.782303, -52.555714)
+script = ExtResource("10_sufdj")
+monologue1 = NodePath("Rat_Monologue_one")
+monologue2 = NodePath("Rat_monologue_two")
+rat_trigger = NodePath("Rat_mono_trigger")
 
-[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=2074272789]
+[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=1387870882]
 transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.7640175, 2.8202384e-08, -1.0315187e-08, -2.8202397e-08, 1, -4.470642, 0.8019142, 25.382225)
 
-[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1360454833]
+[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=69318675]
 transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
 
 [node name="Rat_Monologue_one" type="AudioStreamPlayer" parent="rat_boss_reto_w_texture" unique_id=1357601980]
@@ -270,11 +281,7 @@ stream = ExtResource("9_2v66h")
 
 [node name="Rat_monologue_two" type="AudioStreamPlayer" parent="rat_boss_reto_w_texture" unique_id=2064086386]
 
-[node name="Rat_mono_trigger" type="Area3D" parent="rat_boss_reto_w_texture" unique_id=1442523804 node_paths=PackedStringArray("monologue1", "monologue2", "rat_trigger")]
-script = ExtResource("10_sufdj")
-monologue1 = NodePath("../Rat_Monologue_one")
-monologue2 = NodePath("../Rat_monologue_two")
-rat_trigger = NodePath(".")
+[node name="Rat_mono_trigger" type="Area3D" parent="rat_boss_reto_w_texture" unique_id=1442523804]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rat_boss_reto_w_texture/Rat_mono_trigger" unique_id=364229849]
 transform = Transform3D(1, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 1, 2.153473, -2.5714655, 3.5375047)
@@ -339,104 +346,127 @@ stream = ExtResource("7_ybiyl")
 autoplay = true
 bus = &"Ambiance "
 
-[node name="Cat Unwrap TEXT" parent="." unique_id=1916181240 instance=ExtResource("13_p2m5s")]
+[node name="Cat Unwrap TEXT" parent="." unique_id=1916181240 node_paths=PackedStringArray("monologue", "cat_trigger") instance=ExtResource("13_p2m5s")]
 transform = Transform3D(0.91011906, 0, -3.9053533, 0, 4.01, 0, 3.9053533, 0, 0.91011906, -14.446241, 2.3167157, 13.656445)
+script = ExtResource("14_k348x")
+monologue = NodePath("Cat_monologue")
+cat_trigger = NodePath("cat_mono_trigger")
 
-[node name="Retopo_back feet" parent="Cat Unwrap TEXT" index="0" unique_id=894507288]
+[node name="Retopo_back feet" parent="Cat Unwrap TEXT" index="0" unique_id=2054504217]
 transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 0.9999997, 1.5001736, -0.35886312, 7.303274)
 
-[node name="Retopo_back feet_005" parent="Cat Unwrap TEXT" index="1" unique_id=1877030616]
+[node name="Retopo_back feet_005" parent="Cat Unwrap TEXT" index="1" unique_id=1944223971]
 transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 0.9999997, 1.5001736, -0.35886312, 7.303274)
 
-[node name="Retopo_back legs" parent="Cat Unwrap TEXT" index="2" unique_id=1679794249]
+[node name="Retopo_back legs" parent="Cat Unwrap TEXT" index="2" unique_id=90096994]
 transform = Transform3D(0.9982768, -0.05818875, 0.0073880106, 0.05818872, 0.96657383, -0.24968995, 0.007388085, 0.24968997, 0.968297, 1.4508691, 1.0810459, 2.6224623)
 
-[node name="Retopo_back legs_001" parent="Cat Unwrap TEXT" index="3" unique_id=41595087]
+[node name="Retopo_back legs_001" parent="Cat Unwrap TEXT" index="3" unique_id=187280798]
 transform = Transform3D(0.99520165, 0.095650755, 0.020588264, -0.095650695, 0.9068558, 0.41044068, 0.020588443, -0.4104408, 0.9116542, 1.1910968, -3.466033, 3.571972)
 
-[node name="Retopo_back legs_002" parent="Cat Unwrap TEXT" index="4" unique_id=1090301746]
+[node name="Retopo_back legs_002" parent="Cat Unwrap TEXT" index="4" unique_id=2087305438]
 transform = Transform3D(0.9956943, -0.09083043, 0.01847282, 0.09083042, 0.91642594, -0.38975662, 0.01847285, 0.38975656, 0.9207314, 1.6646175, 0.90674216, 1.9839735)
 
-[node name="Retopo_back legs_003" parent="Cat Unwrap TEXT" index="5" unique_id=987831611]
+[node name="Retopo_back legs_003" parent="Cat Unwrap TEXT" index="5" unique_id=1431355514]
 transform = Transform3D(0.9982768, -0.05818875, 0.0073880106, 0.05818872, 0.96657383, -0.24968995, 0.007388085, 0.24968997, 0.968297, 1.4508691, 1.0810459, 2.6224623)
 
-[node name="Retopo_back legs_004" parent="Cat Unwrap TEXT" index="6" unique_id=1613588942]
+[node name="Retopo_back legs_004" parent="Cat Unwrap TEXT" index="6" unique_id=311381858]
 transform = Transform3D(0.99520165, 0.095650755, 0.020588264, -0.095650695, 0.9068558, 0.41044068, 0.020588443, -0.4104408, 0.9116542, 1.1910968, -3.466033, 3.571972)
 
-[node name="Retopo_back legs_005" parent="Cat Unwrap TEXT" index="7" unique_id=2109067183]
+[node name="Retopo_back legs_005" parent="Cat Unwrap TEXT" index="7" unique_id=1736867748]
 transform = Transform3D(0.9956943, -0.09083043, 0.01847282, 0.09083042, 0.91642594, -0.38975662, 0.01847285, 0.38975656, 0.9207314, 1.6646175, 0.90674216, 1.9839735)
 
-[node name="Retopo_front feet" parent="Cat Unwrap TEXT" index="8" unique_id=1285417441]
+[node name="Retopo_front feet" parent="Cat Unwrap TEXT" index="8" unique_id=2137865620]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6410346, -0.33555013, 1.291956)
 
-[node name="Retopo_front feet_001" parent="Cat Unwrap TEXT" index="9" unique_id=960019259]
+[node name="Retopo_front feet_001" parent="Cat Unwrap TEXT" index="9" unique_id=2058333941]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6410346, -0.33555013, 1.291956)
 
-[node name="Retopo_front legs" parent="Cat Unwrap TEXT" index="10" unique_id=1613975199]
+[node name="Retopo_front legs" parent="Cat Unwrap TEXT" index="10" unique_id=2015597981]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6452456, -2.398603, 1.2040749)
 
-[node name="Retopo_front legs_001" parent="Cat Unwrap TEXT" index="11" unique_id=1687765692]
+[node name="Retopo_front legs_001" parent="Cat Unwrap TEXT" index="11" unique_id=1627962508]
 transform = Transform3D(0.99889964, 0.04664505, 0.004718423, -0.046645004, 0.97865176, 0.20015544, 0.0047186017, -0.20015554, 0.9797518, 1.4448223, -2.5580692, 2.029786)
 
-[node name="Retopo_front legs_002" parent="Cat Unwrap TEXT" index="12" unique_id=801432857]
+[node name="Retopo_front legs_002" parent="Cat Unwrap TEXT" index="12" unique_id=47210743]
 transform = Transform3D(0.98344797, -0.16668612, 0.07102117, 0.16668579, 0.6786926, -0.7152547, 0.07102141, 0.7152559, 0.69524467, 1.4985809, 0.44844586, 1.5631132)
 
-[node name="Retopo_front legs_003" parent="Cat Unwrap TEXT" index="13" unique_id=314765568]
+[node name="Retopo_front legs_003" parent="Cat Unwrap TEXT" index="13" unique_id=3126739]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6452456, -2.398603, 1.2040749)
 
-[node name="Retopo_front legs_004" parent="Cat Unwrap TEXT" index="14" unique_id=1499300089]
+[node name="Retopo_front legs_004" parent="Cat Unwrap TEXT" index="14" unique_id=501341602]
 transform = Transform3D(0.99889964, 0.04664505, 0.004718423, -0.046645004, 0.97865176, 0.20015544, 0.0047186017, -0.20015554, 0.9797518, 1.4448223, -2.5580692, 2.029786)
 
-[node name="Retopo_front legs_005" parent="Cat Unwrap TEXT" index="15" unique_id=342469984]
+[node name="Retopo_front legs_005" parent="Cat Unwrap TEXT" index="15" unique_id=1943178802]
 transform = Transform3D(0.98344773, -0.16668612, 0.07102117, 0.16668576, 0.67869234, -0.7152545, 0.07102138, 0.7152559, 0.69524467, 1.563067, 0.15789717, 1.2864027)
 
-[node name="Retopo_head_001" parent="Cat Unwrap TEXT" index="16" unique_id=949391856]
+[node name="Retopo_head_001" parent="Cat Unwrap TEXT" index="16" unique_id=1728822477]
 transform = Transform3D(0.9914122, 0.12547137, 0.036848456, -0.12547137, 0.8332939, 0.5384022, 0.03684847, -0.53840214, 0.8418814, 0.88798213, -2.4240339, 3.7464004)
 
-[node name="Retopo_ribs 1" parent="Cat Unwrap TEXT" index="17" unique_id=1655736707]
+[node name="Retopo_ribs 1" parent="Cat Unwrap TEXT" index="17" unique_id=98350754]
 transform = Transform3D(1.203784, 0, 0, 0, 0.9813702, 0, 5.9604645e-08, 0, 1.0040603, 1.692461, -2.7556078, 1.4559221)
 
-[node name="Retopo_ribs 2" parent="Cat Unwrap TEXT" index="18" unique_id=1797799320]
+[node name="Retopo_ribs 2" parent="Cat Unwrap TEXT" index="18" unique_id=1196380494]
 transform = Transform3D(0.9999993, 0, -1.3411045e-07, 0, 0.9999986, 0, 4.4703484e-08, 0, 1.0113512, 1.692461, -2.7556078, 1.4559221)
 
-[node name="Retopo_ribs 3" parent="Cat Unwrap TEXT" index="19" unique_id=957065574]
+[node name="Retopo_ribs 3" parent="Cat Unwrap TEXT" index="19" unique_id=1023468536]
 transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484e-08, 0, 0.9999993, 1.692461, -2.7556078, 1.4559221)
 
-[node name="Retopo_ribs 4" parent="Cat Unwrap TEXT" index="20" unique_id=857268372]
+[node name="Retopo_ribs 4" parent="Cat Unwrap TEXT" index="20" unique_id=554556637]
 transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484e-08, 0, 0.9999993, 1.692461, -2.7556078, 1.4559221)
 
-[node name="Retopo_ribs 5" parent="Cat Unwrap TEXT" index="21" unique_id=35054825]
+[node name="Retopo_ribs 5" parent="Cat Unwrap TEXT" index="21" unique_id=2041996907]
 transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484e-08, 0, 0.9999993, 1.692461, -2.7556078, 1.4559221)
 
-[node name="Retopo_spine" parent="Cat Unwrap TEXT" index="22" unique_id=1878598543]
+[node name="Retopo_spine" parent="Cat Unwrap TEXT" index="22" unique_id=939314828]
 transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 0.9999997, 1.576839, -2.6982286, 1.4267035)
 
-[node name="Bird_Boss_TEXT" parent="." unique_id=1546241203 instance=ExtResource("14_7tbbv")]
-transform = Transform3D(-0.21588406, 0, -0.5598161, 0, 0.6, 0, 0.5598161, 0, -0.21588406, 10.95466, 20.00622, -20.873295)
+[node name="Cat_monologue" type="AudioStreamPlayer" parent="Cat Unwrap TEXT" unique_id=776127491]
 
-[node name="Retopo_Head_002" parent="Bird_Boss_TEXT" index="0" unique_id=621228427]
+[node name="cat_mono_trigger" type="Area3D" parent="Cat Unwrap TEXT" unique_id=174852860]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/cat_mono_trigger" unique_id=582034204]
+transform = Transform3D(4.35, 0, -2.9802322e-07, 0, 4.35, 0, 2.9802322e-07, 0, 4.35, 2.0153277, 1.5552847, -0.13084126)
+shape = SubResource("BoxShape3D_ucpcr")
+
+[node name="Bird_Boss_TEXT" parent="." unique_id=1546241203 node_paths=PackedStringArray("monologue", "bird_trigger") instance=ExtResource("14_7tbbv")]
+transform = Transform3D(-0.21588406, 0, -0.5598161, 0, 0.6, 0, 0.5598161, 0, -0.21588406, 10.95466, 20.00622, -20.873295)
+script = ExtResource("15_1ngbj")
+monologue = NodePath("Bird_Monologue")
+bird_trigger = NodePath("Bird_Mono_Trigger")
+
+[node name="Retopo_Head_002" parent="Bird_Boss_TEXT" index="0" unique_id=157418413]
 transform = Transform3D(-0.09022655, 7.976, 0.1330276, -0.44077703, -0.34909543, -0.2265166, -0.20878395, -2.7098532, 0.42072538, -0.83724594, -7.0549526, -2.1710892)
 
-[node name="Retopo_Left_Wing_Bicep" parent="Bird_Boss_TEXT" index="3" unique_id=418092494]
+[node name="Retopo_Left_Wing_Bicep" parent="Bird_Boss_TEXT" index="3" unique_id=1287173789]
 transform = Transform3D(-0.23523307, 4.435639, 0.05879162, -0.11439872, -2.8646576, 0.29242027, 0.24219275, 2.9550703, 0.19522578, -0.72774124, 1.4870529, -1.1957426)
 
-[node name="Retopo_Left_wing_Forearm" parent="Bird_Boss_TEXT" index="4" unique_id=1188104355]
+[node name="Retopo_Left_wing_Forearm" parent="Bird_Boss_TEXT" index="4" unique_id=1520117931]
 transform = Transform3D(0.058305647, 5.8169107, -0.078989975, -0.21875073, 1.6640322, 0.2638492, 0.27536798, 0.09024048, 0.22632557, -1.3797531, -12.880444, 7.7837543)
 
-[node name="Retopo_Left_Wing_Tip" parent="Bird_Boss_TEXT" index="5" unique_id=183292542]
+[node name="Retopo_Left_Wing_Tip" parent="Bird_Boss_TEXT" index="5" unique_id=175276257]
 transform = Transform3D(-0.2972921, 0.3710196, -0.19549578, -0.19586405, -1.3858598e-06, 0.29785267, 0.018263116, 6.0395308, 0.0120097175, 18.87659, -4.1250343, -29.382607)
 
-[node name="Retopo_Right_Wing_Bicep" parent="Bird_Boss_TEXT" index="10" unique_id=1045544158]
+[node name="Retopo_Right_Wing_Bicep" parent="Bird_Boss_TEXT" index="10" unique_id=1963053226]
 transform = Transform3D(0.31120574, 2.174828, -0.11753101, -0.13074103, 5.6235285, 0.014986635, 0.11461591, 0.5095887, 0.33621597, 0.35626602, 0, 0.9238453)
 
-[node name="Retopo_Right_Wing_Forearm" parent="Bird_Boss_TEXT" index="11" unique_id=939986576]
+[node name="Retopo_Right_Wing_Forearm" parent="Bird_Boss_TEXT" index="11" unique_id=1647575019]
 transform = Transform3D(0.34585837, 1.461227, -0.007076204, -0.0863613, 5.859136, -0.021666544, 0.0016196445, 0.3859074, 0.3557523, -0.60712814, 0.7342644, -1.5743914)
 
-[node name="Retopo_Right_Wing_Tip" parent="Bird_Boss_TEXT" index="12" unique_id=1275023512]
+[node name="Retopo_Right_Wing_Tip" parent="Bird_Boss_TEXT" index="12" unique_id=1450076931]
 transform = Transform3D(0.06446208, 4.8404126, 0.20397004, -0.287962, 2.7390647, -0.13459864, -0.20000285, -2.3835883, 0.25953466, 15.23502, -18.241146, -19.629185)
 
-[node name="Retopo_Spine" parent="Bird_Boss_TEXT" index="15" unique_id=1236220908]
+[node name="Retopo_Spine" parent="Bird_Boss_TEXT" index="15" unique_id=1655981832]
 transform = Transform3D(0.97909296, 0.19605406, -0.05421391, -0.19605406, 0.83850914, -0.5083943, -0.05421394, 0.50839436, 0.85941577, 0, -3.7867088, -3.5652285)
+
+[node name="Bird_Mono_Trigger" type="Area3D" parent="Bird_Boss_TEXT" unique_id=394937658]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Bird_Mono_Trigger" unique_id=1661195633]
+transform = Transform3D(36.134995, 0, 9.536743e-07, 0, 36.134995, 0, -9.536743e-07, 0, 36.134995, 4.639988, -15.68026, 5.9524546)
+shape = SubResource("BoxShape3D_8v7rc")
+
+[node name="Bird_Monologue" type="AudioStreamPlayer" parent="Bird_Boss_TEXT" unique_id=101659991]
+stream = ExtResource("16_k348x")
 
 [editable path="rat_boss_reto_w_texture"]
 [editable path="Cat Unwrap TEXT"]
