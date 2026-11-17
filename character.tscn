@@ -1,33 +1,54 @@
 [gd_scene format=3 uid="uid://bli5vxrjb7cf1"]
 
-[sub_resource type="GDScript" id="GDScript_2exwg"]
+[sub_resource type="GDScript" id="GDScript_bjcjn"]
 script/source = "extends CharacterBody3D
 
+@export var mouse_sensitivity := 0.003
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+# @onready: find this node once the scene is ready
+@onready var pivot: Node3D = $CameraPivot
 
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
+@export var speed := 4.0
+# Read gravity from Project Settings (9.8 by default)
+var gravity: float = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
+
+func _ready():
+	# Hide the mouse and lock it to the game window
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _unhandled_input(event):
+	 # Mouse moved: rotate the camera pivot
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		pivot.rotation.y -= event.relative.x * mouse_sensitivity   # left/right
+		pivot.rotation.x -= event.relative.y * mouse_sensitivity   # up/down
+		# Stop the camera from flipping over the top or going under the ground
+		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-40), deg_to_rad(30))
+
+	# Esc frees the mouse; clicking captures it again
+	if event.is_action_pressed(\"ui_cancel\"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	elif event is InputEventMouseButton and event.pressed:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _physics_process(delta):
+		# 1. GRAVITY: if we're in the air, pull down a little more each frame
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y -= gravity * delta #only this line is within the if statement block
+		# 2. INPUT: turn the four keys into one direction
+	# 2. INPUT: turn the four keys into one direction
+	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_forward\", \"move_back\")
+	var direction := Vector3(input_dir.x, 0, input_dir.y).rotated(Vector3.UP, pivot.rotation.y).normalized()
 
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+# 3. SPEED: move if a key is pressed, stop if not
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		velocity.x = 0
+		velocity.z = 0
+# 4. MOVE: let Godot handle the collisions
 	move_and_slide()
 "
 
@@ -40,7 +61,7 @@ func _physics_process(delta: float) -> void:
 [node name="Node3D" type="Node3D" unique_id=1082028887]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1234958465]
-script = SubResource("GDScript_2exwg")
+script = SubResource("GDScript_bjcjn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=864732687]
 visible = false
@@ -49,11 +70,14 @@ mesh = SubResource("CapsuleMesh_bjcjn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1381840225]
 shape = SubResource("CapsuleShape3D_4c4ue")
 
-[node name="Node3D" type="Node3D" parent="CharacterBody3D" unique_id=1307542431]
+[node name="CameraPivot" type="Node3D" parent="CharacterBody3D" unique_id=1307542431]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/Node3D" unique_id=711561765]
+[node name="SpringArm" type="SpringArm3D" parent="CharacterBody3D/CameraPivot" unique_id=711561765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9025537, 0)
 shape = SubResource("SphereShape3D_bjcjn")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Node3D/SpringArm3D" unique_id=1163381102]
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivot/SpringArm" unique_id=1163381102]
+current = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="CharacterBody3D/CameraPivot/SpringArm/Camera3D" unique_id=1568552240]
 current = true

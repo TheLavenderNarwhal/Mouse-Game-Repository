@@ -129,14 +129,15 @@ cull_mask = 1047553
 fov = 83.15007
 script = ExtResource("1_vtx4m")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=487197734]
+transform = Transform3D(1, 1.8626451e-09, -3.7252903e-09, 0, 1, 0, 3.7252903e-09, -2.9802322e-08, 1, 0, 0, 0)
+current = true
+
 [node name="Area3D" type="Area3D" parent="Camera3D" unique_id=1746800573]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D" unique_id=383845219]
 transform = Transform3D(1.27, -2.3655586e-09, -4.731119e-09, 2.3655593e-09, 1.27, 1.8924479e-07, 4.7311186e-09, -1.8924479e-07, 1.27, 0, 0, 0)
 shape = SubResource("BoxShape3D_53ymn")
-
-[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=487197734]
-current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1723107564]
 transform = Transform3D(0.22955865, -0.50861466, 0.8298278, -0.9732947, -0.11996043, 0.19572087, 0, -0.85259634, -0.52256984, 0, 10.853449, 0.6155846)
@@ -193,6 +194,7 @@ shape = SubResource("BoxShape3D_17a3h")
 [node name="Snake_Monologue" type="AudioStreamPlayer" parent="Giant Snake_TEXT" unique_id=2103870559]
 stream = ExtResource("4_vtx4m")
 volume_db = 13.549
+autoplay = true
 
 [node name="Snake lights" type="Node3D" parent="Giant Snake_TEXT" unique_id=61501992]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.0955093, 2.2998865, -1.1629496)
@@ -449,7 +451,7 @@ transform = Transform3D(4.35, 0, -2.9802322e-07, 0, 4.35, 0, 2.9802322e-07, 0, 4
 shape = SubResource("BoxShape3D_ucpcr")
 
 [node name="Node3D" parent="." unique_id=1082028887 instance=ExtResource("5_3i46s")]
-transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 2.3435955, 0.7467921, 36.087578)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.3435955, 0.7467921, 36.087578)
 
 [node name="Bird_Boss_TEXT" parent="." unique_id=1546241203 node_paths=PackedStringArray("monologue", "bird_trigger") instance=ExtResource("14_7tbbv")]
 transform = Transform3D(-0.21588406, 0, -0.5598161, 0, 0.6, 0, 0.5598161, 0, -0.21588406, 10.95466, 20.00622, -20.873295)
