@@ -95,14 +95,14 @@ size = Vector3(16.159607, 10.095154, 22.447083)
 transform = Transform3D(1.3538793, 0, 0, 0, 1, 0, 0, 0, 4.1351104, 0, 0, 0)
 mesh = SubResource("PlaneMesh_bjcjn")
 
-[node name="floor text" parent="MeshInstance3D" unique_id=366053607 instance=ExtResource("4_48252")]
-transform = Transform3D(-1.1079273, 0, -9.685808e-08, 0, 1.5, 0, 3.171237e-08, 0, -0.36274725, 1.4830796, 0.2006855, 0.37046224)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=290986159]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2114692052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.718476, -1.1513596, 0.60559076)
 shape = SubResource("BoxShape3D_baofl")
+
+[node name="floor text" parent="MeshInstance3D" unique_id=366053607 instance=ExtResource("4_48252")]
+transform = Transform3D(-1.1079273, 0, -9.685808e-08, 0, 1.5, 0, 3.171237e-08, 0, -0.36274725, 1.4830796, 0.2006855, 0.37046224)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=293111350]
 environment = SubResource("Environment_bjcjn")
