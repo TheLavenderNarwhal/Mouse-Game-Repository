@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2qxofng77dax"
 path.s3tc="res://.godot/imported/Cat Unwrap TEXT_Unnamed Layering Project_Material.001_Material_2.png-f8405fcb7c9f72f0adbed2420acf1585.s3tc.ctex"
+path.etc2="res://.godot/imported/Cat Unwrap TEXT_Unnamed Layering Project_Material.001_Material_2.png-f8405fcb7c9f72f0adbed2420acf1585.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Cat Unwrap TEXT_Unnamed Layering Project_Material.001_Material_2.png"
-dest_files=["res://.godot/imported/Cat Unwrap TEXT_Unnamed Layering Project_Material.001_Material_2.png-f8405fcb7c9f72f0adbed2420acf1585.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cat Unwrap TEXT_Unnamed Layering Project_Material.001_Material_2.png-f8405fcb7c9f72f0adbed2420acf1585.s3tc.ctex", "res://.godot/imported/Cat Unwrap TEXT_Unnamed Layering Project_Material.001_Material_2.png-f8405fcb7c9f72f0adbed2420acf1585.etc2.ctex"]
 
 [params]
 

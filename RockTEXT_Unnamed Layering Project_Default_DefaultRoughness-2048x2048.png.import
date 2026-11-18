@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d278ngnvl4xgr"
 path.s3tc="res://.godot/imported/RockTEXT_Unnamed Layering Project_Default_DefaultRoughness-2048x2048.png-4124a5ad12eff3c220041a54daa10352.s3tc.ctex"
+path.etc2="res://.godot/imported/RockTEXT_Unnamed Layering Project_Default_DefaultRoughness-2048x2048.png-4124a5ad12eff3c220041a54daa10352.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://RockTEXT_Unnamed Layering Project_Default_DefaultRoughness-2048x2048.png"
-dest_files=["res://.godot/imported/RockTEXT_Unnamed Layering Project_Default_DefaultRoughness-2048x2048.png-4124a5ad12eff3c220041a54daa10352.s3tc.ctex"]
+dest_files=["res://.godot/imported/RockTEXT_Unnamed Layering Project_Default_DefaultRoughness-2048x2048.png-4124a5ad12eff3c220041a54daa10352.s3tc.ctex", "res://.godot/imported/RockTEXT_Unnamed Layering Project_Default_DefaultRoughness-2048x2048.png-4124a5ad12eff3c220041a54daa10352.etc2.ctex"]
 
 [params]
 

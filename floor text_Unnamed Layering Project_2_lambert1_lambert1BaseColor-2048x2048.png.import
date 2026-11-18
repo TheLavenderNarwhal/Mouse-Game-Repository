@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2py7w4thsqvd"
 path.s3tc="res://.godot/imported/floor text_Unnamed Layering Project_2_lambert1_lambert1BaseColor-2048x2048.png-cf720f4b4e252e0842a8c18a1f42117e.s3tc.ctex"
+path.etc2="res://.godot/imported/floor text_Unnamed Layering Project_2_lambert1_lambert1BaseColor-2048x2048.png-cf720f4b4e252e0842a8c18a1f42117e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://floor text_Unnamed Layering Project_2_lambert1_lambert1BaseColor-2048x2048.png"
-dest_files=["res://.godot/imported/floor text_Unnamed Layering Project_2_lambert1_lambert1BaseColor-2048x2048.png-cf720f4b4e252e0842a8c18a1f42117e.s3tc.ctex"]
+dest_files=["res://.godot/imported/floor text_Unnamed Layering Project_2_lambert1_lambert1BaseColor-2048x2048.png-cf720f4b4e252e0842a8c18a1f42117e.s3tc.ctex", "res://.godot/imported/floor text_Unnamed Layering Project_2_lambert1_lambert1BaseColor-2048x2048.png-cf720f4b4e252e0842a8c18a1f42117e.etc2.ctex"]
 
 [params]
 

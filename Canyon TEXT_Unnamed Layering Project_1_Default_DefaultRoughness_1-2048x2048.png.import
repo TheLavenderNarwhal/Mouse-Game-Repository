@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5gtutugq01s4"
 path.s3tc="res://.godot/imported/Canyon TEXT_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2d57254c844ad362f2338e0bac638d72.s3tc.ctex"
+path.etc2="res://.godot/imported/Canyon TEXT_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2d57254c844ad362f2338e0bac638d72.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Canyon TEXT_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png"
-dest_files=["res://.godot/imported/Canyon TEXT_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2d57254c844ad362f2338e0bac638d72.s3tc.ctex"]
+dest_files=["res://.godot/imported/Canyon TEXT_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2d57254c844ad362f2338e0bac638d72.s3tc.ctex", "res://.godot/imported/Canyon TEXT_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2d57254c844ad362f2338e0bac638d72.etc2.ctex"]
 
 [params]
 

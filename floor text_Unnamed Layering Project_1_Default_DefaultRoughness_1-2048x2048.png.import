@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyc05r2hsywy2"
 path.s3tc="res://.godot/imported/floor text_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2a68f68671a048d739b16741edf4655d.s3tc.ctex"
+path.etc2="res://.godot/imported/floor text_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2a68f68671a048d739b16741edf4655d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://floor text_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png"
-dest_files=["res://.godot/imported/floor text_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2a68f68671a048d739b16741edf4655d.s3tc.ctex"]
+dest_files=["res://.godot/imported/floor text_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2a68f68671a048d739b16741edf4655d.s3tc.ctex", "res://.godot/imported/floor text_Unnamed Layering Project_1_Default_DefaultRoughness_1-2048x2048.png-2a68f68671a048d739b16741edf4655d.etc2.ctex"]
 
 [params]
 

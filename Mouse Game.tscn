@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bjd0u1uh0p7cj" path="res://bird_mono_trigger.gd" id="15_1ngbj"]
 [ext_resource type="AudioStream" uid="uid://crt2thegn7b80" path="res://Bird_lines_fin.mp3" id="16_k348x"]
 [ext_resource type="PackedScene" uid="uid://c5verqudn01or" path="res://RockTEXT.glb" id="19_2exwg"]
+[ext_resource type="AudioStream" uid="uid://cg3v1vb1blwht" path="res://Cat_lines_fin.mp3" id="20_6ug2f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svtcy"]
 albedo_texture = ExtResource("1_ybiyl")
@@ -285,7 +286,7 @@ light_volumetric_fog_energy = 2.206
 [node name="Canyon TEXT" parent="." unique_id=1459433752 instance=ExtResource("1_x2hxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.64185333, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Canyon TEXT/Retopo_Plane_001" parent_id_path=PackedInt32Array(1459433752, 1605396270) index="0" unique_id=257801504]
+[node name="StaticBody3D" type="StaticBody3D" parent="Canyon TEXT/Retopo_Plane_001" parent_id_path=PackedInt32Array(1459433752, 32066358) index="0" unique_id=257801504]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Canyon TEXT/Retopo_Plane_001/StaticBody3D" unique_id=1880123577]
 shape = SubResource("ConcavePolygonShape3D_3i46s")
@@ -296,12 +297,12 @@ script = ExtResource("3_y5rtj")
 monologue = NodePath("Snake_Monologue")
 snake_trigger = NodePath("Snake_Mono_Trigger")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Giant Snake_TEXT/Retopo_Skull" parent_id_path=PackedInt32Array(1478634906, 160216866) index="0" unique_id=157209912]
+[node name="StaticBody3D" type="StaticBody3D" parent="Giant Snake_TEXT/Retopo_Skull" parent_id_path=PackedInt32Array(1478634906, 847298670) index="0" unique_id=157209912]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Giant Snake_TEXT/Retopo_Skull/StaticBody3D" unique_id=1003618677]
 shape = SubResource("ConcavePolygonShape3D_2exwg")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Giant Snake_TEXT/Retopo_Vertebrae" parent_id_path=PackedInt32Array(1478634906, 1633545050) index="0" unique_id=1510177401]
+[node name="StaticBody3D" type="StaticBody3D" parent="Giant Snake_TEXT/Retopo_Vertebrae" parent_id_path=PackedInt32Array(1478634906, 393306130) index="0" unique_id=1510177401]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Giant Snake_TEXT/Retopo_Vertebrae/StaticBody3D" unique_id=422109908]
 shape = SubResource("ConcavePolygonShape3D_6ug2f")
@@ -317,7 +318,6 @@ shape = SubResource("BoxShape3D_17a3h")
 [node name="Snake_Monologue" type="AudioStreamPlayer" parent="Giant Snake_TEXT" unique_id=2103870559]
 stream = ExtResource("4_vtx4m")
 volume_db = 13.549
-autoplay = true
 
 [node name="Snake lights" type="Node3D" parent="Giant Snake_TEXT" unique_id=61501992]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.0955093, 2.2998865, -1.1629496)
@@ -414,7 +414,7 @@ monologue1 = NodePath("Rat_Monologue_one")
 monologue2 = NodePath("Rat_monologue_two")
 rat_trigger = NodePath("Rat_mono_trigger")
 
-[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=362980406]
+[node name="Retopo_Rat_HP" parent="rat_boss_reto_w_texture" index="0" unique_id=2074272789]
 transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.7640175, 2.8202384e-08, -1.0315187e-08, -2.8202397e-08, 1, -4.470642, 0.8019142, 25.382225)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="rat_boss_reto_w_texture/Retopo_Rat_HP" index="0" unique_id=1462761641]
@@ -422,7 +422,7 @@ transform = Transform3D(0.7640175, -0.64519584, -1.0315041e-08, 0.64519584, 0.76
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rat_boss_reto_w_texture/Retopo_Rat_HP/StaticBody3D" unique_id=551135220]
 shape = SubResource("ConcavePolygonShape3D_0itrf")
 
-[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1835125170]
+[node name="Retopo_Rat_HP_001" parent="rat_boss_reto_w_texture" index="1" unique_id=1360454833]
 transform = Transform3D(0.9691094, 1.7003467, 0.41188407, -1.7164142, 1.0152138, -0.15252477, -0.33874768, -0.2795753, 1.9511764, 1.5153694, -2.238603, -1.3855271)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="rat_boss_reto_w_texture/Retopo_Rat_HP_001" index="0" unique_id=1902642216]
@@ -506,8 +506,10 @@ light_volumetric_fog_energy = 16.0
 
 [node name="Canyon_Ambiance" type="AudioStreamPlayer" parent="." unique_id=1578871001]
 stream = ExtResource("7_ybiyl")
+volume_db = -23.803
 autoplay = true
 bus = &"Ambiance "
+parameters/looping = true
 
 [node name="Cat Unwrap TEXT" parent="." unique_id=1916181240 node_paths=PackedStringArray("monologue", "cat_trigger") instance=ExtResource("13_p2m5s")]
 transform = Transform3D(0.91011906, 0, -3.9053533, 0, 4.01, 0, 3.9053533, 0, 0.91011906, -14.446241, 2.3167157, 13.656445)
@@ -515,7 +517,7 @@ script = ExtResource("14_k348x")
 monologue = NodePath("Cat_monologue")
 cat_trigger = NodePath("cat_mono_trigger")
 
-[node name="Retopo_back feet" parent="Cat Unwrap TEXT" index="0" unique_id=1629665222]
+[node name="Retopo_back feet" parent="Cat Unwrap TEXT" index="0" unique_id=894507288]
 transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 0.9999997, 1.5001736, -0.35886312, 7.303274)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back feet" index="0" unique_id=637832268]
@@ -523,7 +525,7 @@ transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back feet/StaticBody3D" unique_id=1166753668]
 shape = SubResource("ConcavePolygonShape3D_oqbdu")
 
-[node name="Retopo_back feet_005" parent="Cat Unwrap TEXT" index="1" unique_id=1350493126]
+[node name="Retopo_back feet_005" parent="Cat Unwrap TEXT" index="1" unique_id=1877030616]
 transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 0.9999997, 1.5001736, -0.35886312, 7.303274)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back feet_005" index="0" unique_id=1844154232]
@@ -531,7 +533,7 @@ transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back feet_005/StaticBody3D" unique_id=1388066836]
 shape = SubResource("ConcavePolygonShape3D_fusum")
 
-[node name="Retopo_back legs" parent="Cat Unwrap TEXT" index="2" unique_id=1364283005]
+[node name="Retopo_back legs" parent="Cat Unwrap TEXT" index="2" unique_id=1679794249]
 transform = Transform3D(0.9982768, -0.05818875, 0.0073880106, 0.05818872, 0.96657383, -0.24968995, 0.007388085, 0.24968997, 0.968297, 1.4508691, 1.0810459, 2.6224623)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back legs" index="0" unique_id=1274426430]
@@ -539,7 +541,7 @@ transform = Transform3D(0.9982768, -0.05818875, 0.0073880106, 0.05818872, 0.9665
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back legs/StaticBody3D" unique_id=1732068292]
 shape = SubResource("ConcavePolygonShape3D_bsyld")
 
-[node name="Retopo_back legs_001" parent="Cat Unwrap TEXT" index="3" unique_id=1601730380]
+[node name="Retopo_back legs_001" parent="Cat Unwrap TEXT" index="3" unique_id=41595087]
 transform = Transform3D(0.99520165, 0.095650755, 0.020588264, -0.095650695, 0.9068558, 0.41044068, 0.020588443, -0.4104408, 0.9116542, 1.1910968, -3.466033, 3.571972)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back legs_001" index="0" unique_id=1112846613]
@@ -547,7 +549,7 @@ transform = Transform3D(0.99520165, 0.095650755, 0.020588264, -0.095650695, 0.90
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back legs_001/StaticBody3D" unique_id=169470358]
 shape = SubResource("ConcavePolygonShape3D_2aoq0")
 
-[node name="Retopo_back legs_002" parent="Cat Unwrap TEXT" index="4" unique_id=617483718]
+[node name="Retopo_back legs_002" parent="Cat Unwrap TEXT" index="4" unique_id=1090301746]
 transform = Transform3D(0.9956943, -0.09083043, 0.01847282, 0.09083042, 0.91642594, -0.38975662, 0.01847285, 0.38975656, 0.9207314, 1.6646175, 0.90674216, 1.9839735)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back legs_002" index="0" unique_id=752908821]
@@ -555,7 +557,7 @@ transform = Transform3D(0.9956943, -0.09083043, 0.01847282, 0.09083042, 0.916425
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back legs_002/StaticBody3D" unique_id=1757312892]
 shape = SubResource("ConcavePolygonShape3D_b63ae")
 
-[node name="Retopo_back legs_003" parent="Cat Unwrap TEXT" index="5" unique_id=1924836888]
+[node name="Retopo_back legs_003" parent="Cat Unwrap TEXT" index="5" unique_id=987831611]
 transform = Transform3D(0.9982768, -0.05818875, 0.0073880106, 0.05818872, 0.96657383, -0.24968995, 0.007388085, 0.24968997, 0.968297, 1.4508691, 1.0810459, 2.6224623)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back legs_003" index="0" unique_id=30966993]
@@ -563,7 +565,7 @@ transform = Transform3D(0.9982768, -0.05818875, 0.0073880106, 0.05818872, 0.9665
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back legs_003/StaticBody3D" unique_id=48683026]
 shape = SubResource("ConcavePolygonShape3D_sgs4m")
 
-[node name="Retopo_back legs_004" parent="Cat Unwrap TEXT" index="6" unique_id=154951295]
+[node name="Retopo_back legs_004" parent="Cat Unwrap TEXT" index="6" unique_id=1613588942]
 transform = Transform3D(0.99520165, 0.095650755, 0.020588264, -0.095650695, 0.9068558, 0.41044068, 0.020588443, -0.4104408, 0.9116542, 1.1910968, -3.466033, 3.571972)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back legs_004" index="0" unique_id=1683435238]
@@ -571,7 +573,7 @@ transform = Transform3D(0.99520165, 0.095650755, 0.020588264, -0.095650695, 0.90
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back legs_004/StaticBody3D" unique_id=1826022552]
 shape = SubResource("ConcavePolygonShape3D_yw3c7")
 
-[node name="Retopo_back legs_005" parent="Cat Unwrap TEXT" index="7" unique_id=315886437]
+[node name="Retopo_back legs_005" parent="Cat Unwrap TEXT" index="7" unique_id=2109067183]
 transform = Transform3D(0.9956943, -0.09083043, 0.01847282, 0.09083042, 0.91642594, -0.38975662, 0.01847285, 0.38975656, 0.9207314, 1.6646175, 0.90674216, 1.9839735)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_back legs_005" index="0" unique_id=1237600087]
@@ -579,7 +581,7 @@ transform = Transform3D(0.9956943, -0.09083043, 0.01847282, 0.09083042, 0.916425
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_back legs_005/StaticBody3D" unique_id=2004661875]
 shape = SubResource("ConcavePolygonShape3D_hjq53")
 
-[node name="Retopo_front feet" parent="Cat Unwrap TEXT" index="8" unique_id=878102297]
+[node name="Retopo_front feet" parent="Cat Unwrap TEXT" index="8" unique_id=1285417441]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6410346, -0.33555013, 1.291956)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front feet" index="0" unique_id=188414077]
@@ -587,7 +589,7 @@ transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front feet/StaticBody3D" unique_id=479720026]
 shape = SubResource("ConcavePolygonShape3D_3634q")
 
-[node name="Retopo_front feet_001" parent="Cat Unwrap TEXT" index="9" unique_id=705363520]
+[node name="Retopo_front feet_001" parent="Cat Unwrap TEXT" index="9" unique_id=960019259]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6410346, -0.33555013, 1.291956)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front feet_001" index="0" unique_id=683677076]
@@ -595,7 +597,7 @@ transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front feet_001/StaticBody3D" unique_id=1315906228]
 shape = SubResource("ConcavePolygonShape3D_kb3wo")
 
-[node name="Retopo_front legs" parent="Cat Unwrap TEXT" index="10" unique_id=1386912761]
+[node name="Retopo_front legs" parent="Cat Unwrap TEXT" index="10" unique_id=1613975199]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6452456, -2.398603, 1.2040749)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front legs" index="0" unique_id=731469576]
@@ -603,7 +605,7 @@ transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front legs/StaticBody3D" unique_id=1114615147]
 shape = SubResource("ConcavePolygonShape3D_1cgfx")
 
-[node name="Retopo_front legs_001" parent="Cat Unwrap TEXT" index="11" unique_id=1439337751]
+[node name="Retopo_front legs_001" parent="Cat Unwrap TEXT" index="11" unique_id=1687765692]
 transform = Transform3D(0.99889964, 0.04664505, 0.004718423, -0.046645004, 0.97865176, 0.20015544, 0.0047186017, -0.20015554, 0.9797518, 1.4448223, -2.5580692, 2.029786)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front legs_001" index="0" unique_id=1378574946]
@@ -611,7 +613,7 @@ transform = Transform3D(0.99889964, 0.04664505, 0.004718423, -0.046645004, 0.978
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front legs_001/StaticBody3D" unique_id=1486803504]
 shape = SubResource("ConcavePolygonShape3D_e66dh")
 
-[node name="Retopo_front legs_002" parent="Cat Unwrap TEXT" index="12" unique_id=1900029023]
+[node name="Retopo_front legs_002" parent="Cat Unwrap TEXT" index="12" unique_id=801432857]
 transform = Transform3D(0.98344797, -0.16668612, 0.07102117, 0.16668579, 0.6786926, -0.7152547, 0.07102141, 0.7152559, 0.69524467, 1.4985809, 0.44844586, 1.5631132)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front legs_002" index="0" unique_id=1420025561]
@@ -619,7 +621,7 @@ transform = Transform3D(0.98344797, -0.16668612, 0.07102117, 0.16668579, 0.67869
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front legs_002/StaticBody3D" unique_id=290795702]
 shape = SubResource("ConcavePolygonShape3D_v84r5")
 
-[node name="Retopo_front legs_003" parent="Cat Unwrap TEXT" index="13" unique_id=401014487]
+[node name="Retopo_front legs_003" parent="Cat Unwrap TEXT" index="13" unique_id=314765568]
 transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322e-08, 0, 0.99999934, 1.6452456, -2.398603, 1.2040749)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front legs_003" index="0" unique_id=1677292942]
@@ -627,7 +629,7 @@ transform = Transform3D(0.99999934, 0, -2.9802322e-08, 0, 0.999999, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front legs_003/StaticBody3D" unique_id=1699169491]
 shape = SubResource("ConcavePolygonShape3D_87665")
 
-[node name="Retopo_front legs_004" parent="Cat Unwrap TEXT" index="14" unique_id=1141202910]
+[node name="Retopo_front legs_004" parent="Cat Unwrap TEXT" index="14" unique_id=1499300089]
 transform = Transform3D(0.99889964, 0.04664505, 0.004718423, -0.046645004, 0.97865176, 0.20015544, 0.0047186017, -0.20015554, 0.9797518, 1.4448223, -2.5580692, 2.029786)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front legs_004" index="0" unique_id=1625022222]
@@ -635,7 +637,7 @@ transform = Transform3D(0.99889964, 0.04664505, 0.004718423, -0.046645004, 0.978
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front legs_004/StaticBody3D" unique_id=309020644]
 shape = SubResource("ConcavePolygonShape3D_t6djd")
 
-[node name="Retopo_front legs_005" parent="Cat Unwrap TEXT" index="15" unique_id=1777163522]
+[node name="Retopo_front legs_005" parent="Cat Unwrap TEXT" index="15" unique_id=342469984]
 transform = Transform3D(0.98344773, -0.16668612, 0.07102117, 0.16668576, 0.67869234, -0.7152545, 0.07102138, 0.7152559, 0.69524467, 1.563067, 0.15789717, 1.2864027)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_front legs_005" index="0" unique_id=27879391]
@@ -643,7 +645,7 @@ transform = Transform3D(0.98344773, -0.16668612, 0.07102117, 0.16668576, 0.67869
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_front legs_005/StaticBody3D" unique_id=518035598]
 shape = SubResource("ConcavePolygonShape3D_auckk")
 
-[node name="Retopo_head_001" parent="Cat Unwrap TEXT" index="16" unique_id=895676147]
+[node name="Retopo_head_001" parent="Cat Unwrap TEXT" index="16" unique_id=949391856]
 transform = Transform3D(0.9914122, 0.12547137, 0.036848456, -0.12547137, 0.8332939, 0.5384022, 0.03684847, -0.53840214, 0.8418814, 0.88798213, -2.4240339, 3.7464004)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_head_001" index="0" unique_id=920426691]
@@ -651,7 +653,7 @@ transform = Transform3D(0.9914122, 0.12547137, 0.036848456, -0.12547137, 0.83329
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_head_001/StaticBody3D" unique_id=1812275172]
 shape = SubResource("ConcavePolygonShape3D_niel7")
 
-[node name="Retopo_ribs 1" parent="Cat Unwrap TEXT" index="17" unique_id=1003151490]
+[node name="Retopo_ribs 1" parent="Cat Unwrap TEXT" index="17" unique_id=1655736707]
 transform = Transform3D(1.203784, 0, 0, 0, 0.9813702, 0, 5.9604645e-08, 0, 1.0040603, 1.692461, -2.7556078, 1.4559221)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_ribs 1" index="0" unique_id=1092544899]
@@ -659,7 +661,7 @@ transform = Transform3D(1.203784, 0, 0, 0, 0.9813702, 0, 5.9604645e-08, 0, 1.004
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_ribs 1/StaticBody3D" unique_id=1341319155]
 shape = SubResource("ConcavePolygonShape3D_uageq")
 
-[node name="Retopo_ribs 2" parent="Cat Unwrap TEXT" index="18" unique_id=1463980822]
+[node name="Retopo_ribs 2" parent="Cat Unwrap TEXT" index="18" unique_id=1797799320]
 transform = Transform3D(0.9999993, 0, -1.3411045e-07, 0, 0.9999986, 0, 4.4703484e-08, 0, 1.0113512, 1.692461, -2.7556078, 1.4559221)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_ribs 2" index="0" unique_id=1963463780]
@@ -667,7 +669,7 @@ transform = Transform3D(0.9999993, 0, -1.3411045e-07, 0, 0.9999986, 0, 4.4703484
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_ribs 2/StaticBody3D" unique_id=1366499157]
 shape = SubResource("ConcavePolygonShape3D_1e1kv")
 
-[node name="Retopo_ribs 3" parent="Cat Unwrap TEXT" index="19" unique_id=1027109857]
+[node name="Retopo_ribs 3" parent="Cat Unwrap TEXT" index="19" unique_id=957065574]
 transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484e-08, 0, 0.9999993, 1.692461, -2.7556078, 1.4559221)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_ribs 3" index="0" unique_id=891433584]
@@ -675,7 +677,7 @@ transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_ribs 3/StaticBody3D" unique_id=1946077104]
 shape = SubResource("ConcavePolygonShape3D_rfgc2")
 
-[node name="Retopo_ribs 4" parent="Cat Unwrap TEXT" index="20" unique_id=1659225408]
+[node name="Retopo_ribs 4" parent="Cat Unwrap TEXT" index="20" unique_id=857268372]
 transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484e-08, 0, 0.9999993, 1.692461, -2.7556078, 1.4559221)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_ribs 4" index="0" unique_id=1469863443]
@@ -683,7 +685,7 @@ transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_ribs 4/StaticBody3D" unique_id=1945140503]
 shape = SubResource("ConcavePolygonShape3D_k4s66")
 
-[node name="Retopo_ribs 5" parent="Cat Unwrap TEXT" index="21" unique_id=2072945775]
+[node name="Retopo_ribs 5" parent="Cat Unwrap TEXT" index="21" unique_id=35054825]
 transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484e-08, 0, 0.9999993, 1.692461, -2.7556078, 1.4559221)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_ribs 5" index="0" unique_id=850307425]
@@ -691,7 +693,7 @@ transform = Transform3D(0.9999993, 0, -4.4703484e-08, 0, 0.9999986, 0, 4.4703484
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_ribs 5/StaticBody3D" unique_id=974886858]
 shape = SubResource("ConcavePolygonShape3D_r1hbq")
 
-[node name="Retopo_spine" parent="Cat Unwrap TEXT" index="22" unique_id=1147271404]
+[node name="Retopo_spine" parent="Cat Unwrap TEXT" index="22" unique_id=1878598543]
 transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 0.9999997, 1.576839, -2.6982286, 1.4267035)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_spine" index="0" unique_id=1276738030]
@@ -699,7 +701,7 @@ transform = Transform3D(0.9999997, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_spine/StaticBody3D" unique_id=509342729]
 shape = SubResource("ConcavePolygonShape3D_h5htp")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_tail" parent_id_path=PackedInt32Array(1916181240, 1476154013) index="0" unique_id=154146793]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cat Unwrap TEXT/Retopo_tail" parent_id_path=PackedInt32Array(1916181240, 1287730005) index="0" unique_id=154146793]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cat Unwrap TEXT/Retopo_tail/StaticBody3D" unique_id=294051777]
 shape = SubResource("ConcavePolygonShape3D_4n2no")
@@ -712,8 +714,8 @@ shape = SubResource("ConcavePolygonShape3D_4n2no")
 transform = Transform3D(4.35, 0, -2.9802322e-07, 0, 4.35, 0, 2.9802322e-07, 0, 4.35, 2.0153277, 1.5552847, -0.13084126)
 shape = SubResource("BoxShape3D_ucpcr")
 
-[node name="Node3D" parent="." unique_id=1082028887 instance=ExtResource("5_3i46s")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.3435955, 0.7467921, 36.087578)
+[node name="Player" parent="." unique_id=1082028887 instance=ExtResource("5_3i46s")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.3435955, 0.7467921, 36.813873)
 
 [node name="Bird_Boss_TEXT" parent="." unique_id=1546241203 node_paths=PackedStringArray("monologue", "bird_trigger") instance=ExtResource("14_7tbbv")]
 transform = Transform3D(-0.21588406, 0, -0.5598161, 0, 0.6, 0, 0.5598161, 0, -0.21588406, 10.95466, 20.00622, -20.873295)
@@ -721,7 +723,7 @@ script = ExtResource("15_1ngbj")
 monologue = NodePath("Bird_Monologue")
 bird_trigger = NodePath("Bird_Mono_Trigger")
 
-[node name="Retopo_Head_002" parent="Bird_Boss_TEXT" index="0" unique_id=1067274213]
+[node name="Retopo_Head_002" parent="Bird_Boss_TEXT" index="0" unique_id=621228427]
 transform = Transform3D(-0.09022655, 7.976, 0.1330276, -0.44077703, -0.34909543, -0.2265166, -0.20878395, -2.7098532, 0.42072538, -0.83724594, -7.0549526, -2.1710892)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Head_002" index="0" unique_id=369245788]
@@ -729,17 +731,17 @@ transform = Transform3D(-0.09022655, 7.976, 0.1330276, -0.44077703, -0.34909543,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Head_002/StaticBody3D" unique_id=200157391]
 shape = SubResource("ConcavePolygonShape3D_2ldnt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_Rib_1" parent_id_path=PackedInt32Array(1546241203, 1197403436) index="0" unique_id=1631451377]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_Rib_1" parent_id_path=PackedInt32Array(1546241203, 764474965) index="0" unique_id=1631451377]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Left_Rib_1/StaticBody3D" unique_id=1500879629]
 shape = SubResource("ConcavePolygonShape3D_a02bg")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_Rib_2" parent_id_path=PackedInt32Array(1546241203, 36555433) index="0" unique_id=1555600097]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_Rib_2" parent_id_path=PackedInt32Array(1546241203, 1746525782) index="0" unique_id=1555600097]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Left_Rib_2/StaticBody3D" unique_id=732283434]
 shape = SubResource("ConcavePolygonShape3D_vqpsr")
 
-[node name="Retopo_Left_Wing_Bicep" parent="Bird_Boss_TEXT" index="3" unique_id=929762445]
+[node name="Retopo_Left_Wing_Bicep" parent="Bird_Boss_TEXT" index="3" unique_id=418092494]
 transform = Transform3D(-0.23523307, 4.435639, 0.05879162, -0.11439872, -2.8646576, 0.29242027, 0.24219275, 2.9550703, 0.19522578, -0.72774124, 1.4870529, -1.1957426)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_Wing_Bicep" index="0" unique_id=1468045528]
@@ -747,7 +749,7 @@ transform = Transform3D(-0.23523307, 4.435639, 0.05879162, -0.11439872, -2.86465
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Left_Wing_Bicep/StaticBody3D" unique_id=827085542]
 shape = SubResource("ConcavePolygonShape3D_feckk")
 
-[node name="Retopo_Left_wing_Forearm" parent="Bird_Boss_TEXT" index="4" unique_id=1592845194]
+[node name="Retopo_Left_wing_Forearm" parent="Bird_Boss_TEXT" index="4" unique_id=1188104355]
 transform = Transform3D(0.058305647, 5.8169107, -0.078989975, -0.21875073, 1.6640322, 0.2638492, 0.27536798, 0.09024048, 0.22632557, -1.3797531, -12.880444, 7.7837543)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_wing_Forearm" index="0" unique_id=541065457]
@@ -755,7 +757,7 @@ transform = Transform3D(0.058305647, 5.8169107, -0.078989975, -0.21875073, 1.664
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Left_wing_Forearm/StaticBody3D" unique_id=557653791]
 shape = SubResource("ConcavePolygonShape3D_bvk6x")
 
-[node name="Retopo_Left_Wing_Tip" parent="Bird_Boss_TEXT" index="5" unique_id=1034396251]
+[node name="Retopo_Left_Wing_Tip" parent="Bird_Boss_TEXT" index="5" unique_id=183292542]
 transform = Transform3D(-0.2972921, 0.3710196, -0.19549578, -0.19586405, -1.3858598e-06, 0.29785267, 0.018263116, 6.0395308, 0.0120097175, 18.87659, -4.1250343, -29.382607)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Left_Wing_Tip" index="0" unique_id=835762142]
@@ -763,27 +765,27 @@ transform = Transform3D(-0.2972921, 0.3710196, -0.19549578, -0.19586405, -1.3858
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Left_Wing_Tip/StaticBody3D" unique_id=1073640630]
 shape = SubResource("ConcavePolygonShape3D_w8s6m")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Ribs_3" parent_id_path=PackedInt32Array(1546241203, 1674169941) index="0" unique_id=12558628]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Ribs_3" parent_id_path=PackedInt32Array(1546241203, 1843527126) index="0" unique_id=12558628]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Ribs_3/StaticBody3D" unique_id=333056438]
 shape = SubResource("ConcavePolygonShape3D_0dttt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Ribs_4" parent_id_path=PackedInt32Array(1546241203, 1991100240) index="0" unique_id=524953089]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Ribs_4" parent_id_path=PackedInt32Array(1546241203, 29432555) index="0" unique_id=524953089]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Ribs_4/StaticBody3D" unique_id=1724753203]
 shape = SubResource("ConcavePolygonShape3D_l084b")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_Rib_1" parent_id_path=PackedInt32Array(1546241203, 1093998768) index="0" unique_id=1761618485]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_Rib_1" parent_id_path=PackedInt32Array(1546241203, 983725387) index="0" unique_id=1761618485]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Right_Rib_1/StaticBody3D" unique_id=2672415]
 shape = SubResource("ConcavePolygonShape3D_6hrga")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_rib_2" parent_id_path=PackedInt32Array(1546241203, 1960008111) index="0" unique_id=1733802196]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_rib_2" parent_id_path=PackedInt32Array(1546241203, 263862470) index="0" unique_id=1733802196]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Right_rib_2/StaticBody3D" unique_id=1789912397]
 shape = SubResource("ConcavePolygonShape3D_2fp4a")
 
-[node name="Retopo_Right_Wing_Bicep" parent="Bird_Boss_TEXT" index="10" unique_id=1742604538]
+[node name="Retopo_Right_Wing_Bicep" parent="Bird_Boss_TEXT" index="10" unique_id=1045544158]
 transform = Transform3D(0.31120574, 2.174828, -0.11753101, -0.13074103, 5.6235285, 0.014986635, 0.11461591, 0.5095887, 0.33621597, 0.35626602, 0, 0.9238453)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_Wing_Bicep" index="0" unique_id=1278808176]
@@ -791,7 +793,7 @@ transform = Transform3D(0.31120574, 2.174828, -0.11753101, -0.13074103, 5.623528
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Right_Wing_Bicep/StaticBody3D" unique_id=927774209]
 shape = SubResource("ConcavePolygonShape3D_vvjwx")
 
-[node name="Retopo_Right_Wing_Forearm" parent="Bird_Boss_TEXT" index="11" unique_id=1060851084]
+[node name="Retopo_Right_Wing_Forearm" parent="Bird_Boss_TEXT" index="11" unique_id=939986576]
 transform = Transform3D(0.34585837, 1.461227, -0.007076204, -0.0863613, 5.859136, -0.021666544, 0.0016196445, 0.3859074, 0.3557523, -0.60712814, 0.7342644, -1.5743914)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_Wing_Forearm" index="0" unique_id=683608367]
@@ -799,7 +801,7 @@ transform = Transform3D(0.34585837, 1.461227, -0.007076204, -0.0863613, 5.859136
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Right_Wing_Forearm/StaticBody3D" unique_id=1640309075]
 shape = SubResource("ConcavePolygonShape3D_2fgt5")
 
-[node name="Retopo_Right_Wing_Tip" parent="Bird_Boss_TEXT" index="12" unique_id=250983178]
+[node name="Retopo_Right_Wing_Tip" parent="Bird_Boss_TEXT" index="12" unique_id=1275023512]
 transform = Transform3D(0.06446208, 4.8404126, 0.20397004, -0.287962, 2.7390647, -0.13459864, -0.20000285, -2.3835883, 0.25953466, 15.23502, -18.241146, -19.629185)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Right_Wing_Tip" index="0" unique_id=1577292721]
@@ -807,17 +809,17 @@ transform = Transform3D(0.06446208, 4.8404126, 0.20397004, -0.287962, 2.7390647,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Right_Wing_Tip/StaticBody3D" unique_id=1043949327]
 shape = SubResource("ConcavePolygonShape3D_qjbus")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Shoulder_Blade_Left" parent_id_path=PackedInt32Array(1546241203, 458926721) index="0" unique_id=417413441]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Shoulder_Blade_Left" parent_id_path=PackedInt32Array(1546241203, 68764356) index="0" unique_id=417413441]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Shoulder_Blade_Left/StaticBody3D" unique_id=2015769207]
 shape = SubResource("ConcavePolygonShape3D_elqml")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Shoulder_Blade_Right" parent_id_path=PackedInt32Array(1546241203, 452173645) index="0" unique_id=1427926603]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Shoulder_Blade_Right" parent_id_path=PackedInt32Array(1546241203, 1356877721) index="0" unique_id=1427926603]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bird_Boss_TEXT/Retopo_Shoulder_Blade_Right/StaticBody3D" unique_id=577448210]
 shape = SubResource("ConcavePolygonShape3D_ee3jj")
 
-[node name="Retopo_Spine" parent="Bird_Boss_TEXT" index="15" unique_id=240811885]
+[node name="Retopo_Spine" parent="Bird_Boss_TEXT" index="15" unique_id=1236220908]
 transform = Transform3D(0.97909296, 0.19605406, -0.05421391, -0.19605406, 0.83850914, -0.5083943, -0.05421394, 0.50839436, 0.85941577, 0, -3.7867088, -3.5652285)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bird_Boss_TEXT/Retopo_Spine" index="0" unique_id=228842110]
@@ -836,13 +838,107 @@ stream = ExtResource("16_k348x")
 
 [node name="RockTEXT" parent="." unique_id=762527102 instance=ExtResource("19_2exwg")]
 
-[node name="Sphere" parent="RockTEXT" index="0" unique_id=1343680975]
+[node name="Sphere" parent="RockTEXT" index="0" unique_id=290553638]
 transform = Transform3D(2.632, 0, 0, 0, 2.632, 0, 0, 0, 2.632, 8.432863, 2.540554, -66.30743)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RockTEXT/Sphere" index="0" unique_id=472172317]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockTEXT/Sphere/StaticBody3D" unique_id=154899594]
 shape = SubResource("ConcavePolygonShape3D_vtrp1")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1478347786]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.357, -13.610731, 0, 20.2023)
+stream = ExtResource("20_6ug2f")
+unit_size = 1.0
+autoplay = true
+max_distance = 61.13
+parameters/looping = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AudioStreamPlayer3D2" unique_id=1466465288]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10.150358, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 8.302
+light_indirect_energy = 10.222
+light_volumetric_fog_energy = 16.0
+spot_range = 10.385072
+spot_angle = 14.55414
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AudioStreamPlayer3D2" unique_id=426560261]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="." unique_id=960205182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4080925, 0, 37.033783)
+stream = ExtResource("4_vtx4m")
+unit_size = 1.0
+autoplay = true
+max_distance = 61.13
+parameters/looping = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AudioStreamPlayer3D3" unique_id=81550304]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10.150358, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 8.302
+light_indirect_energy = 10.222
+light_volumetric_fog_energy = 16.0
+spot_range = 10.385072
+spot_angle = 14.55414
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AudioStreamPlayer3D3" unique_id=1698733312]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="." unique_id=26571025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.726343, 0, -25.915358)
+stream = ExtResource("16_k348x")
+volume_db = 5.0
+unit_size = 1.0
+autoplay = true
+max_distance = 61.13
+parameters/looping = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AudioStreamPlayer3D4" unique_id=1615989063]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10.150358, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 8.302
+light_indirect_energy = 10.222
+light_volumetric_fog_energy = 16.0
+spot_range = 10.385072
+spot_angle = 14.55414
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AudioStreamPlayer3D4" unique_id=1878714713]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 16.0
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="." unique_id=646704677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8826103, 0, -62.011574)
+stream = ExtResource("9_2v66h")
+volume_db = 16.567
+unit_size = 1.0
+autoplay = true
+max_distance = 61.13
+parameters/looping = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AudioStreamPlayer3D5" unique_id=410815745]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10.150358, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 8.302
+light_indirect_energy = 10.222
+light_volumetric_fog_energy = 16.0
+spot_range = 10.385072
+spot_angle = 14.55414
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AudioStreamPlayer3D5" unique_id=1728328741]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0, 1, 1, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 16.0
 
 [editable path="Canyon TEXT"]
 [editable path="Giant Snake_TEXT"]

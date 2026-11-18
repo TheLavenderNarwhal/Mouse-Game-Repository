@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt8wi4mwmu108"
 path.s3tc="res://.godot/imported/Bird_Boss_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-08839d445d6e168ea6161cc72b61b4db.s3tc.ctex"
+path.etc2="res://.godot/imported/Bird_Boss_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-08839d445d6e168ea6161cc72b61b4db.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Bird_Boss_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png"
-dest_files=["res://.godot/imported/Bird_Boss_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-08839d445d6e168ea6161cc72b61b4db.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bird_Boss_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-08839d445d6e168ea6161cc72b61b4db.s3tc.ctex", "res://.godot/imported/Bird_Boss_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-08839d445d6e168ea6161cc72b61b4db.etc2.ctex"]
 
 [params]
 

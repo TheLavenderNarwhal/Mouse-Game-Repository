@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://t0i43ore3rpb"
 path.s3tc="res://.godot/imported/Giant Snake_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-d1b3a0f9289af43df326a73744752b2e.s3tc.ctex"
+path.etc2="res://.godot/imported/Giant Snake_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-d1b3a0f9289af43df326a73744752b2e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Giant Snake_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png"
-dest_files=["res://.godot/imported/Giant Snake_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-d1b3a0f9289af43df326a73744752b2e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Giant Snake_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-d1b3a0f9289af43df326a73744752b2e.s3tc.ctex", "res://.godot/imported/Giant Snake_TEXT_Unnamed Layering Project_UniV_Grid_2K_UniV_Grid_2KBaseColor-2048x2048.png-d1b3a0f9289af43df326a73744752b2e.etc2.ctex"]
 
 [params]
 

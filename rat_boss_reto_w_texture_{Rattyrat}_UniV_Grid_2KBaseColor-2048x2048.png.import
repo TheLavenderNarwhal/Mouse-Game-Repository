@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgk08cx32kydb"
 path.s3tc="res://.godot/imported/rat_boss_reto_w_texture_{Rattyrat}_UniV_Grid_2KBaseColor-2048x2048.png-6ec7e335905d50e4cb7286da3a9a0e02.s3tc.ctex"
+path.etc2="res://.godot/imported/rat_boss_reto_w_texture_{Rattyrat}_UniV_Grid_2KBaseColor-2048x2048.png-6ec7e335905d50e4cb7286da3a9a0e02.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://rat_boss_reto_w_texture_{Rattyrat}_UniV_Grid_2KBaseColor-2048x2048.png"
-dest_files=["res://.godot/imported/rat_boss_reto_w_texture_{Rattyrat}_UniV_Grid_2KBaseColor-2048x2048.png-6ec7e335905d50e4cb7286da3a9a0e02.s3tc.ctex"]
+dest_files=["res://.godot/imported/rat_boss_reto_w_texture_{Rattyrat}_UniV_Grid_2KBaseColor-2048x2048.png-6ec7e335905d50e4cb7286da3a9a0e02.s3tc.ctex", "res://.godot/imported/rat_boss_reto_w_texture_{Rattyrat}_UniV_Grid_2KBaseColor-2048x2048.png-6ec7e335905d50e4cb7286da3a9a0e02.etc2.ctex"]
 
 [params]
 
